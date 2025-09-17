@@ -4,7 +4,8 @@
 # https://docs.astral.sh/ruff/configuration/
 line-length = 100
 preview = true
-required-version = ">=0.13.0" # tool.ruff.target-version is inferred from project.requires-python
+# tool.ruff.target-version is inferred from project.requires-python
+required-version = ">=0.13.0" # Keep in sync with project.dependencies in pyproject.toml
 
 [lint]
 future-annotations = true

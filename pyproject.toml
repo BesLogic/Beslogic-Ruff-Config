@@ -11,7 +11,7 @@ version = "0.1.0"
 license = { file = "LICENSE" }
 description = "Ruff rules and configs used at Beslogic"
 readme = "README.md"
-dependencies = ["ruff >=0.13"]
+dependencies = ["ruff >=0.13"] # Keep in sync with required-version in ruff.toml
 
 [tool.setuptools.data-files]
 "Beslogic-Ruff-Config" = ["ruff.toml"] # installs to <venv>/Beslogic-Ruff-Config/

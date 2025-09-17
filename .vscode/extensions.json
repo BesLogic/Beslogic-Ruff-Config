@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+// Copyright 2025 Beslogic Inc.
+
+// The source skeleton for this configuration can be found at
+// https://github.com/BesLogic/shared-configs/blob/main/.vscode/extensions.json
+// Modifications to this file that are not project-specific should also be done upstream.
+
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // List of extensions which should be recommended for users of this workspace.
+  // Only keep those used by your specific project
+  "recommendations": [
+    // General
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    // GitHub
+    "bierner.github-markdown-preview",
+    "github.vscode-github-actions",
+    // Python/TOML
+    "charliermarsh.ruff",
+    "tamasfe.even-better-toml",
+    // Markdown
+    "bierner.github-markdown-preview",
+    "davidanson.vscode-markdownlint",
+    "dprint.dprint",
+  ],
+}

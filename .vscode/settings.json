@@ -1,0 +1,101 @@
+// SPDX-License-Identifier: MIT
+// Copyright 2025 Beslogic Inc.
+
+// The source skeleton for this configuration can be found at
+// https://github.com/BesLogic/shared-configs/blob/main/.vscode/settings.json
+// Modifications to this file that are not project-specific should also be done upstream.
+
+{
+  /*
+  * General
+  */
+  "files.associations": {
+    "*.json": "jsonc",
+  },
+  "files.exclude": {
+    "*.zip": true,
+    "**/build": true,
+    "**/src/react-app-env.d.ts": true,
+  },
+  "search.exclude": {
+    "*.lock": true,
+  },
+  "editor.rulers": [
+    80,
+    100,
+  ],
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.comments.insertSpace": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    // "source.*Imports": https://github.com/microsoft/TypeScript/pull/50931#issuecomment-1416288712
+    // Let dedicated imports tool deal with it
+    "source.organizeImports": "never",
+    "source.sortImports": "never",
+    // IDEM, but also it's annoying to remove imports because of commented code while testing
+    "source.removeUnusedImports": "never",
+  },
+
+  /*
+  * Git
+  */
+  "[git-commit]": {
+    "editor.rulers": [
+      72,
+    ],
+  },
+  "git.openRepositoryInParentFolders": "always",
+
+  // NOTE: due to a bug in VSCode, we have to specify editor.defaultFormatter individually to ensure
+  // it overrides user settings. Please upvote: https://github.com/microsoft/vscode/issues/168411
+
+  /*
+  * Markdown
+  */
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.defaultFormatter": "dprint.dprint",
+  },
+
+  /*
+  * JSON
+  */
+  "[json]": {
+    "editor.defaultFormatter": "dprint.dprint",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "dprint.dprint",
+  },
+
+  /*
+  * TOML
+  */
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
+  },
+  "evenBetterToml.formatter.alignComments": false,
+  "evenBetterToml.formatter.alignEntries": false,
+  "evenBetterToml.formatter.allowedBlankLines": 1,
+  "evenBetterToml.formatter.arrayAutoCollapse": true,
+  "evenBetterToml.formatter.arrayAutoExpand": true,
+  "evenBetterToml.formatter.arrayTrailingComma": true,
+  "evenBetterToml.formatter.columnWidth": 80,
+  "evenBetterToml.formatter.compactArrays": true,
+  "evenBetterToml.formatter.compactEntries": false,
+  "evenBetterToml.formatter.compactInlineTables": false,
+  "evenBetterToml.formatter.indentEntries": false,
+  "evenBetterToml.formatter.indentTables": false,
+  "evenBetterToml.formatter.inlineTableExpand": false,
+  "evenBetterToml.formatter.reorderArrays": true,
+  "evenBetterToml.formatter.trailingNewline": true,
+  // We like keeping TOML keys in a certain non-alphabetical order that feels more natural
+  "evenBetterToml.formatter.reorderKeys": false,
+}

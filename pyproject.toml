@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT
+# Copyright 2025 Beslogic Inc.
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Beslogic-Ruff-Config"
+version = "0.1.0"
+license = { file = "LICENSE" }
+description = "Ruff rules and configs used at Beslogic"
+readme = "README.md"
+dependencies = ["ruff >=0.13"]
+
+[tool.setuptools.data-files]
+"Beslogic-Ruff-Config" = ["ruff.toml"] # installs to <venv>/Beslogic-Ruff-Config/
+
+[dependency-groups]
+dev = ["dprint-py>=0.50.2.0"]

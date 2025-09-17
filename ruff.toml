@@ -7,6 +7,9 @@ preview = true
 # tool.ruff.target-version is inferred from project.requires-python
 required-version = ">=0.13.0" # Keep in sync with project.dependencies in pyproject.toml
 
+[format]
+docstring-code-format = true
+
 [lint]
 future-annotations = true
 # As a shared config, don't enable unstable behaviour unless we explicitly asks for it.

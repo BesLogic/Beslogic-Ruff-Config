@@ -20,6 +20,7 @@ ignore = [
   ###
   # Not needed or wanted
   ###
+  "CPY001", # missing-copyright-notice: Assume license from root OR private project
   "D1", # pydocstyle Missing docstring
   "D401", # pydocstyle: non-imperative-mood
   "EM", # flake8-errmsg
@@ -40,7 +41,7 @@ ignore = [
   "ANN", # flake-annotations
   "PGH003", # blanket-type-ignore
   "TC", # flake8-type-checking
-  # Already shown by Pylance, checked by pyright, and can be caused by overloads.
+  # Already shown by Pylance, checked by pyright, and can be caused by impementing a protocol.
   "ARG002", # Unused method argument
   # We want D213: multi-line-summary-second-line and D211: no-blank-line-before-class
   # Disabling these two is more concise than selecting https://docs.astral.sh/ruff/settings/#lint_pydocstyle_convention

@@ -2,7 +2,9 @@
 # Copyright 2025 Beslogic Inc.
 
 [build-system]
-requires = ["setuptools>=61"]
+# Using an upperbound pin to prevent sudden breakage.
+# Since we're using a deprecated feature of setuptools, it could be removed in a major update.
+requires = ["setuptools >=61,<81"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -17,4 +19,4 @@ dependencies = ["ruff >=0.13"] # Keep in sync with required-version in ruff.toml
 "Beslogic-Ruff-Config" = ["ruff.toml"] # installs to <venv>/Beslogic-Ruff-Config/
 
 [dependency-groups]
-dev = ["dprint-py>=0.50.2.0"]
+dev = ["dprint-py >=0.50.2.0"]

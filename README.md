@@ -64,13 +64,13 @@ Below you should replace `<rev>` with the latest revision/commit to pin the conf
 
 ### For a uv-based project
 
-`uv add git+https://github.com/Beslogic/Beslogic-Ruff-Config --rev <rev>`
+`uv add git+https://github.com/Beslogic/Beslogic-Ruff-Config --dev --rev <rev>`
 
 Which should add the following to you pyproject.toml:
 
 ```toml
-[project]
-dependencies = [
+[dependency-groups]
+dev = [
     "Beslogic-Ruff-Config",
 ]
 

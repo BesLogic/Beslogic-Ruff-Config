@@ -3,6 +3,8 @@
 
 # https://docs.astral.sh/ruff/configuration/
 line-length = 100
+# For the formatter we want hug_parens_with_braces_and_square_brackets
+# For the linter we use `explicit-preview-rules = true` anyway
 preview = true
 # tool.ruff.target-version is inferred from project.requires-python
 required-version = ">=0.13.0" # Keep in sync with project.dependencies in pyproject.toml
@@ -41,7 +43,7 @@ ignore = [
   "ANN", # flake-annotations
   "PGH003", # blanket-type-ignore
   "TC", # flake8-type-checking
-  # Already shown by Pylance, checked by pyright, and can be caused by impementing a protocol.
+  # Already shown by Pylance, checked by pyright, and can be caused by implementing a protocol.
   "ARG002", # Unused method argument
   # We want D213: multi-line-summary-second-line and D211: no-blank-line-before-class
   # Disabling these two is more concise than selecting https://docs.astral.sh/ruff/settings/#lint_pydocstyle_convention
@@ -135,6 +137,10 @@ max-complexity = 15
 max-args = 7
 # At least same as max-complexity
 max-branches = 15
+
+[lint.flake8-self]
+# Access Django Models and Serializers' Meta class instance
+extend-ignore-names = ["_meta"]
 
 [lint.flake8-tidy-imports.banned-api]
 "cv2.imread".msg = """\

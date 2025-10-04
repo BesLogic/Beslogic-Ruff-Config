@@ -62,6 +62,8 @@ The following are not part of the default config and are good to know about:
 
 Below you should replace `<rev>` with the latest revision/commit to pin the configuration version.
 
+If you want to rely on the uv lockfile instead of using an explicit revision, you can run `uv lock --upgrade-package Beslogic-Ruff-Config` to update.
+
 ### For a uv-based project
 
 `uv add git+https://github.com/Beslogic/Beslogic-Ruff-Config --dev --rev <rev>`

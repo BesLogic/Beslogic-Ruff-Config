@@ -68,7 +68,7 @@ If you want to rely on the uv lockfile instead of using an explicit revision, yo
 
 `uv add git+https://github.com/Beslogic/Beslogic-Ruff-Config --dev --rev <rev>`
 
-Which should add the following to you pyproject.toml:
+Which should add the following to your pyproject.toml:
 
 ```toml
 [dependency-groups]
@@ -77,7 +77,7 @@ dev = [
 ]
 
 [tool.uv.sources]
-httpx = { git = "https://github.com/Beslogic/Beslogic-Ruff-Config@<rev>" }
+Beslogic-Ruff-Config = { git = "https://github.com/Beslogic/Beslogic-Ruff-Config@<rev>" }
 ```
 
 ### Using pip

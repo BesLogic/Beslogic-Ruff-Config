@@ -26,14 +26,14 @@ jobs:
       - uses: astral-sh/setup-uv@v7
         with:
           activate-environment: true
-      - run: uv sync --locked --group=ruff
+      - run: uv sync --locked --only-group=ruff
       - run: ruff check
       - run: ruff format --check
         # Check format even if the the previous step failed
         if: ${{ !cancelled() }}
 ```
 
-Where the `ruff` dependency-group is configured as such in your `pyproject.toml`:
+Where the `ruff` [Dependency Group](https://packaging.python.org/en/latest/specifications/dependency-groups/) is configured as such in your `pyproject.toml`:
 
 ```toml
 [dependency-groups]

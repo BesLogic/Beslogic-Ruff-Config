@@ -27,8 +27,8 @@ jobs:
         with:
           activate-environment: true
       - run: uv sync --locked --only-group=ruff
-      - run: ruff check
-      - run: ruff format --check
+      - run: ruff check --output-format=github
+      - run: ruff format --check --output-format=github
         # Check format even if the the previous step failed
         if: ${{ !cancelled() }}
 ```

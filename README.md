@@ -13,6 +13,39 @@ To use, simply [extend](https://docs.astral.sh/ruff/settings/#extend) your Ruff 
 extend = ".venv/Beslogic-Ruff-Config/ruff.toml"
 ```
 
+### Using in CI
+
+GitHub action example:
+
+```yaml
+jobs:
+  Ruff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          activate-environment: true
+      - run: uv sync --locked --group=ruff
+      - run: ruff check
+      - run: ruff format --check
+        # Check format even if the the previous step failed
+        if: ${{ !cancelled() }}
+```
+
+Where the `ruff` dependency-group is configured as such in your `pyproject.toml`:
+
+```toml
+[dependency-groups]
+ruff = [
+  "beslogic-ruff-config",
+  "ruff", # Version should come from beslogic-ruff-config and the lock file
+]
+dev = [
+  {include-group = "ruff"},
+]
+```
+
 ### Additional configuration
 
 If a rule doesn't seem to fit your need, try to see if it's configurable before disabling it: <https://docs.astral.sh/ruff/settings/#lint>
@@ -63,6 +96,10 @@ The following are not part of the default config and are good to know about:
 Below you should replace `<rev>` with the latest revision/commit to pin the configuration version.
 
 If you want to rely on the uv lockfile instead of using an explicit revision, you can run `uv lock --upgrade-package Beslogic-Ruff-Config` to update.
+
+### Optimized dependency groups for use in CI
+
+See [Using in CI](#using-in-ci)
 
 ### For a uv-based project
 

@@ -10,6 +10,7 @@ Although there's still an issue where config parsing may fail before `required-v
 To use, simply [extend](https://docs.astral.sh/ruff/settings/#extend) your Ruff configuration with the one from this project.
 
 ```toml
+# ruff.toml
 extend = ".venv/Beslogic-Ruff-Config/ruff.toml"
 ```
 

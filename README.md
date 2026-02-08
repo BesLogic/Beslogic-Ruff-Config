@@ -54,33 +54,20 @@ dev = [
 
 If a rule doesn't seem to fit your need, try to see if it's configurable before disabling it: <https://docs.astral.sh/ruff/settings/#lint>
 
-**Never** use the following settings, unless you **really know** that you want to overwrite entire config sections:
-
-- [exclude](https://docs.astral.sh/ruff/settings/#exclude)
-- [include](https://docs.astral.sh/ruff/settings/#include)
-- [fixable](https://docs.astral.sh/ruff/settings/#lint_fixable)
-- [per-file-ignores](https://docs.astral.sh/ruff/settings/#lint_per-file-ignores)
-- [select](https://docs.astral.sh/ruff/settings/#lint_select)
-- [safe-fixes](https://docs.astral.sh/ruff/settings/#lint_safe-fixes)
-- [unsafe-fixes](https://docs.astral.sh/ruff/settings/#lint_unsafe-fixes)
-- [flake8-gettext.function-names](https://docs.astral.sh/ruff/settings/#lint_flake8-gettext_function-names)
-- [flake8-import-conventions.aliases](https://docs.astral.sh/ruff/settings/#lint_flake8-import-conventions_aliases)
-- [flake8-self.ignore-names](https://docs.astral.sh/ruff/settings/#lint_flake8-self_ignore-names)
-- [pep8-naming.ignore-names](https://docs.astral.sh/ruff/settings/#lint_pep8-naming_ignore-names)
-
-Instead, **always** try to use:
-
-- [extend-exclude](https://docs.astral.sh/ruff/settings/#extend-exclude)
-- [extend-include](https://docs.astral.sh/ruff/settings/#extend-include)
-- [extend-fixable](https://docs.astral.sh/ruff/settings/#lint_extend-fixable)
-- [extend-per-file-ignores](https://docs.astral.sh/ruff/settings/#lint_extend-per-file-ignores)
-- [extend-select](https://docs.astral.sh/ruff/settings/#lint_extend-select)
-- [extend-safe-fixes](https://docs.astral.sh/ruff/settings/#lint_extend-safe-fixes)
-- [extend-unsafe-fixes](https://docs.astral.sh/ruff/settings/#lint_extend-unsafe-fixes)
-- [flake8-gettext.extend-function-names](https://docs.astral.sh/ruff/settings/#lint_flake8-gettext_extend-function-names)
-- [flake8-import-conventions.extend-aliases](https://docs.astral.sh/ruff/settings/#lint_flake8-import-conventions_extend-aliases)
-- [flake8-self.extend-ignore-names](https://docs.astral.sh/ruff/settings/#lint_flake8-self_extend-ignore-names)
-- [pep8-naming.extend-ignore-names](https://docs.astral.sh/ruff/settings/#lint_pep8-naming_extend-ignore-names)
+|||
+|-|-|
+|**Never** use the following settings,<br/>unless you **really know** that you want to overwrite entire config sections|Instead, **always** try to use|
+|[exclude](https://docs.astral.sh/ruff/settings/#exclude)|[extend-exclude](https://docs.astral.sh/ruff/settings/#extend-exclude)|
+|[include](https://docs.astral.sh/ruff/settings/#include)|[extend-include](https://docs.astral.sh/ruff/settings/#extend-include)|
+|[fixable](https://docs.astral.sh/ruff/settings/#lint_fixable)|[extend-fixable](https://docs.astral.sh/ruff/settings/#lint_extend-fixable)|
+|[per-file-ignores](https://docs.astral.sh/ruff/settings/#lint_per-file-ignores)|[extend-per-file-ignores](https://docs.astral.sh/ruff/settings/#lint_extend-per-file-ignores)|
+|[select](https://docs.astral.sh/ruff/settings/#lint_select)|[extend-select](https://docs.astral.sh/ruff/settings/#lint_extend-select)|
+|[safe-fixes](https://docs.astral.sh/ruff/settings/#lint_safe-fixes)|[extend-safe-fixes](https://docs.astral.sh/ruff/settings/#lint_extend-safe-fixes)|
+|[unsafe-fixes](https://docs.astral.sh/ruff/settings/#lint_unsafe-fixes)|[extend-unsafe-fixes](https://docs.astral.sh/ruff/settings/#lint_extend-unsafe-fixes)|
+|[flake8-gettext.function-names](https://docs.astral.sh/ruff/settings/#lint_flake8-gettext_function-names)|[flake8-gettext.extend-function-names](https://docs.astral.sh/ruff/settings/#lint_flake8-gettext_extend-function-names)|
+|[flake8-import-conventions.aliases](https://docs.astral.sh/ruff/settings/#lint_flake8-import-conventions_aliases)|[flake8-import-conventions.extend-aliases](https://docs.astral.sh/ruff/settings/#lint_flake8-import-conventions_extend-aliases)|
+|[flake8-self.ignore-names](https://docs.astral.sh/ruff/settings/#lint_flake8-self_ignore-names)|[flake8-self.extend-ignore-names](https://docs.astral.sh/ruff/settings/#lint_flake8-self_extend-ignore-names)|
+|[pep8-naming.ignore-names](https://docs.astral.sh/ruff/settings/#lint_pep8-naming_ignore-names)|[pep8-naming.extend-ignore-names](https://docs.astral.sh/ruff/settings/#lint_pep8-naming_extend-ignore-names)|
 
 If you end up with additional configuration that you believe should be applied across all projects. Please open a PR to modify these shared configurations instead.
 

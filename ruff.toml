@@ -42,7 +42,6 @@ ignore = [
   # Checked by type-checker (pyright/mypy)
   "ANN", # flake-annotations
   "PGH003", # blanket-type-ignore
-  "TC", # flake8-type-checking
   # Already shown by Pylance, checked by pyright, and can be caused by implementing a protocol.
   "ARG002", # Unused method argument
   # We want D213: multi-line-summary-second-line and D211: no-blank-line-before-class
@@ -68,7 +67,13 @@ ignore = [
   # Python 3.11 introduced "zero cost" exception handling
   # Good to watch for, but often unfixable
   "PERF203", # try-except-in-loop,
-
+  
+  # TC helps prevent circular imports, reduce runtime cost of typing symbols,
+	# and prevent leaking implementations details into modules
+	# However stdlib is not at risk of circular import, is clearly not public API,
+	# and assume it's gonna be included in the import chain at some point anyway 
+  "TC003", # typing-only-standard-library-import
+  
   # False-positives
   "TC004", # https://github.com/astral-sh/ruff/issues/3821
   # Too many magic number "2" that are preferable inline. https://github.com/astral-sh/ruff/issues/10009
@@ -105,7 +110,6 @@ ignore = [
   "PLR0913", # Argument count
   "PLR0917", # Too many positional arguments
   "PLW3201", # misspelled dunder method name
-  "PYI042", # CamelCase TypeAlias
   "SLOT", # flake8-slots
   # Stubs can sometimes re-export entire modules.
   # Issues with using a star-imported name will be caught by type-checkers.

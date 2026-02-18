@@ -1,10 +1,10 @@
 # Overview
 
-This only works setups with a virtual environment at a known consistent location. This way of installing is a workaround until an official solution is available. See <https://github.com/astral-sh/ruff/issues/12352>.\
+This only works on setups with a virtual environment at a known consistent location. This way of installing is a workaround until an official solution is available. See <https://github.com/astral-sh/ruff/issues/12352>.\
 Alternatively, you can simply copy the [ruff.toml skeleton file](/ruff.toml) into the root of your python project or root of your monorepo.
 
 [required-version](https://docs.astral.sh/ruff/settings/#required-version) and [project.dependencies](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#dependencies-and-requirements) are already set so you shouldn't be able to accidentally use an incompatible Ruff version.\
-Although there's still an issue where config parsing may fail before `required-version` tells you about it: <https://github.com/astral-sh/ruff/issues/19922>
+Although there was an issue before `0.14.11` where config parsing may fail before `required-version` tells you about it: <https://github.com/astral-sh/ruff/issues/19922>
 
 ## Usage
 

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-# Copyright 2025 Beslogic Inc.
+# Copyright 2026 Beslogic Inc.
 
 # https://docs.astral.sh/ruff/configuration/
 line-length = 100
@@ -74,8 +74,6 @@ ignore = [
 	# and assume it's gonna be included in the import chain at some point anyway 
   "TC003", # typing-only-standard-library-import
   
-  # False-positives
-  "TC004", # https://github.com/astral-sh/ruff/issues/3821
   # Too many magic number "2" that are preferable inline. https://github.com/astral-sh/ruff/issues/10009
   "PLR2004", # magic-value-comparison
 

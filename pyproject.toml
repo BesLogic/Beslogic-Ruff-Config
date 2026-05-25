@@ -13,7 +13,7 @@ version = "1.1.0"
 license = { file = "LICENSE" }
 description = "Ruff rules and configs used at Beslogic"
 readme = "README.md"
-# Note: 0.13.3 is higher than required-version of 0.13 because we promote using `ruff format --check --output-format=github`
+# Note: 0.15.14 see https://github.com/astral-sh/ruff/issues/23185
 dependencies = ["ruff >=0.15.14"] # Keep in sync with required-version in ruff.toml
 
 [tool.setuptools.data-files]

@@ -7,7 +7,7 @@ line-length = 100
 # For the linter we use `explicit-preview-rules = true` anyway
 preview = true
 # tool.ruff.target-version is inferred from project.requires-python
-required-version = ">=0.13.0" # Keep in sync with project.dependencies in pyproject.toml
+required-version = ">=0.15.14" # Keep in sync with project.dependencies in pyproject.toml
 
 [format]
 docstring-code-format = true

@@ -39,17 +39,14 @@ ignore = [
   "SIM105", # flake8-simplify: use-contextlib-suppress
   # Not colored correctly in Pylance https://github.com/microsoft/pylance-release/issues/6942
   "UP047", # non-pep695-generic-function
-  # Checked by type-checker (pyright/mypy)
-  "ANN", # flake-annotations
-  "PGH003", # blanket-type-ignore
-  # Already shown by Pylance, checked by pyright, and can be caused by implementing a protocol.
-  "ARG002", # Unused method argument
   # We want D213: multi-line-summary-second-line and D211: no-blank-line-before-class
   # Disabling these two is more concise than selecting https://docs.astral.sh/ruff/settings/#lint_pydocstyle_convention
   "D203", # pydocstyle: one-blank-line-before-class
   "D212", # pydocstyle: multi-line-summary-first-line
   # Allow differentiating between broken (FIXME) and to be done/added/completed (TODO)
   "TD001", # flake8-todos: invalid-todo-tag
+  # Using git blame to find author of TODO is sufficient
+  "TD002", # flake8-todos
   # Often just leads to redundant more verbose code when needing an actual str
   "PTH208", # Use `pathlib.Path.iterdir()` instead.
   # Typeshed doesn't want complex or non-literal defaults for maintenance and testing reasons.
@@ -57,6 +54,14 @@ ignore = [
   "PYI011", # typed-argument-default-in-stub
   "PYI014", # argument-default-in-stub
   "PYI053", # string-or-bytes-too-long
+
+  ###
+  # Checked by type-checker (pyright/mypy)
+  ###
+  "ANN", # flake-annotations
+  "PGH003", # blanket-type-ignore
+  # Already shown by Pylance, checked by pyright, and can be caused by implementing a protocol.
+  "ARG002", # Unused method argument
 
   ###
   # These should be warnings (https://github.com/astral-sh/ruff/issues/1256 & https://github.com/astral-sh/ruff/issues/1774)
@@ -69,9 +74,9 @@ ignore = [
   "PERF203", # try-except-in-loop,
   
   # TC helps prevent circular imports, reduce runtime cost of typing symbols,
-	# and prevent leaking implementations details into modules
-	# However stdlib is not at risk of circular import, is clearly not public API,
-	# and assume it's gonna be included in the import chain at some point anyway 
+  # and prevent leaking implementations details into modules
+  # However stdlib is not at risk of circular import, is clearly not public API,
+  # and assume it's gonna be included in the import chain at some point anyway 
   "TC003", # typing-only-standard-library-import
   
   # Too many magic number "2" that are preferable inline. https://github.com/astral-sh/ruff/issues/10009
@@ -91,6 +96,8 @@ ignore = [
   # "D406", # new-line-after-section-name, conflicts with DOC
   # "D407", # dashed-underline-after-section, conflicts with DOC
 ]
+# F401 would remove imports not marked as explicit re-exports, which may break API boundaries
+extend-unsafe-fixes = ["F401"]
 
 [lint.per-file-ignores]
 "**/typings/**/*.pyi" = [

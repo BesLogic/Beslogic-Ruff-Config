@@ -157,6 +157,11 @@ max-branches = 15
 # Access Django Models and Serializers' Meta class instance
 extend-ignore-names = ["_meta"]
 
+# https://docs.astral.sh/ruff/settings/#lintflake8-copyright
+[lint.flake8-copyright]
+# Empty files don't need a copyright header
+min-file-size = 1
+
 # https://docs.astral.sh/ruff/settings/#lint_flake8-tidy-imports_banned-api
 [lint.flake8-tidy-imports.banned-api]
 "cv2.imread".msg = """\

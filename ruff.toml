@@ -56,6 +56,13 @@ ignore = [
   "PYI053", # string-or-bytes-too-long
 
   ###
+  # Don't enforce human readable names and ruff suppression comments until out of preview
+  ###
+  "RUF105", # noqa-comments
+  "RUF106", # rule-codes-in-suppression-comments
+  "RUF201", # rule-codes-in-selectors
+
+  ###
   # Checked by type-checker (pyright/mypy)
   ###
   "ANN", # flake-annotations

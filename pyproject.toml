@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-# Copyright 2025 Beslogic Inc.
+# Copyright 2026 Beslogic Inc.
 
 [build-system]
 # Using an upperbound pin to prevent sudden breakage.
@@ -13,8 +13,10 @@ version = "1.1.0"
 license = { file = "LICENSE" }
 description = "Ruff rules and configs used at Beslogic"
 readme = "README.md"
-# Note: 0.15.14 see https://github.com/astral-sh/ruff/issues/23185
-dependencies = ["ruff >=0.15.14"] # Keep in sync with required-version in ruff.toml
+dependencies = [
+  # Allow human-readable names in rule selectors
+  "ruff >=0.15.20", # Keep in sync with required-version in ruff.toml
+]
 
 [tool.setuptools.data-files]
 "Beslogic-Ruff-Config" = ["ruff.toml"] # installs to <venv>/Beslogic-Ruff-Config/

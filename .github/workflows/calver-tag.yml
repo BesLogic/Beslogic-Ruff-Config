@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Beslogic Inc.
+
+name: CalVer tag
+
+on:
+  push:
+    branches: [main]
+    # Only what changes the installed package. A new tag is a new version for consumers.
+    paths:
+      - pyproject.toml
+      - ruff.toml
+  # Recover a missed tag. Re-running on an already tagged commit is a no-op.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# One run at a time so pushes can't race for the same tag.
+# Only the latest push needs a tag, so a newer one cancels the rest.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  tag:
+    # workflow_dispatch can target any branch, only main is released
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+      - name: Create CalVer tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: .github/scripts/calver-tag.sh

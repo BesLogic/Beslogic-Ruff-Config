@@ -1,15 +1,18 @@
 # SPDX-License-Identifier: MIT
-# Copyright 2026 Beslogic Inc.
+# SPDX-FileCopyrightText: Beslogic Inc.
 
 [build-system]
-# Using an upperbound pin to prevent sudden breakage.
-# Since we're using a deprecated feature of setuptools, it could be removed in a major update.
-requires = ["setuptools >=61,<81"]
+requires = [
+  # Using an upperbound pin to prevent sudden breakage.
+  # Since we're using a deprecated feature of setuptools, it could be removed in a major update.
+  "setuptools >=64,<85", # PEP 660 editable installs
+  "setuptools-scm >=9.2", # dev versions use the commit's UTC date, like the tag workflow
+]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "Beslogic-Ruff-Config"
-version = "1.1.0"
+dynamic = ["version"] # From the CalVer git tag, see .github/workflows/calver-tag.yml
 license = { file = "LICENSE" }
 description = "Ruff rules and configs used at Beslogic"
 readme = "README.md"
@@ -21,9 +24,14 @@ dependencies = [
 [tool.setuptools.data-files]
 "Beslogic-Ruff-Config" = ["ruff.toml"] # installs to <venv>/Beslogic-Ruff-Config/
 
+[tool.setuptools_scm]
+# Same day as last tag: bump .N, otherwise the commit's date. Matches the tag workflow.
+version_scheme = "calver-by-date"
+
 [dependency-groups]
 dev = ["dprint-py >=0.50.2.0"]
 
 [tool.uv]
+exclude-newer = "1 week"
 # https://github.com/astral-sh/uv/security/advisories/GHSA-hq85-5cpj-mr62
 required-version = ">=0.13.4"

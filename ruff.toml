@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-# Copyright 2026 Beslogic Inc.
+# SPDX-FileCopyrightText: Beslogic Inc.
 
 # https://docs.astral.sh/ruff/configuration/
 line-length = 100

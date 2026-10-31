@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Beslogic Inc.
+
 # Python-generated files
 __pycache__/
 *.py[oc]
@@ -9,3 +12,6 @@ wheels/
 # Virtual environments
 .venv
 .python-version
+
+# Config-only package, consumers lock their own dependencies
+uv.lock

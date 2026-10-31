@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: MIT -->
+<!-- SPDX-FileCopyrightText: Beslogic Inc. -->
+
 # Overview
 
 This only works on setups with a virtual environment at a known consistent location. This way of installing is a workaround until an official solution is available. See <https://github.com/astral-sh/ruff/issues/12352>.\
@@ -26,14 +29,14 @@ jobs:
     env:
       RUFF_OUTPUT_FORMAT: github
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v7
+      - uses: actions/checkout@<sha> # v7.x.y
+      - uses: astral-sh/setup-uv@v10.x.y
         with:
           activate-environment: true
       - run: uv sync --locked --only-group=ruff
       - run: ruff check
       - run: ruff format --check
-        # Check format even if the the previous step failed
+        # Check format even if the previous step failed
         if: ${{ !cancelled() }}
 ```
 
@@ -42,7 +45,7 @@ Where the `ruff` [Dependency Group](https://packaging.python.org/en/latest/speci
 ```toml
 [dependency-groups]
 ruff = [
-  "beslogic-ruff-config",
+  "beslogic-ruff-config @ git+https://github.com/BesLogic/Beslogic-Ruff-Config@<version>",
   "ruff", # Version should come from beslogic-ruff-config and the lock file
 ]
 dev = [
@@ -84,9 +87,9 @@ The following are not part of the default config and are good to know about:
 
 ## Installation
 
-Below you should replace `<rev>` with the latest revision/commit to pin the configuration version.
+Below you should replace `<version>` with the latest [tag](https://github.com/BesLogic/Beslogic-Ruff-Config/tags) to pin the configuration version. Every config change pushed to `main` is tagged with a CalVer version (`YYYY.MM.DD.N`), which is also the installed package's version.
 
-If you want to rely on the uv lockfile instead of using an explicit revision, you can run `uv lock --upgrade-package Beslogic-Ruff-Config` to update.
+If you'd rather track `main` with the uv lockfile pinning the commit, omit `@<version>`, then run `uv lock --upgrade-package Beslogic-Ruff-Config` to update.
 
 ### Optimized dependency groups for use in CI
 
@@ -94,20 +97,17 @@ See [Using in CI](#using-in-ci)
 
 ### For a uv-based project
 
-`uv add git+https://github.com/Beslogic/Beslogic-Ruff-Config --dev --rev <rev>`
+`uv add --raw git+https://github.com/BesLogic/Beslogic-Ruff-Config@<version> --dev`
 
 Which should add the following to your pyproject.toml:
 
 ```toml
 [dependency-groups]
 dev = [
-    "Beslogic-Ruff-Config",
+  "beslogic-ruff-config @ git+https://github.com/BesLogic/Beslogic-Ruff-Config@<version>",
 ]
-
-[tool.uv.sources]
-Beslogic-Ruff-Config = { git = "https://github.com/Beslogic/Beslogic-Ruff-Config@<rev>" }
 ```
 
 ### Using pip
 
-`pip install git+https://github.com/microsoft/python-type-stubs.git@<rev>`
+`pip install git+https://github.com/BesLogic/Beslogic-Ruff-Config@<version>`
